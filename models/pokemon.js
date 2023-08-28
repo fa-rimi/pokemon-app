@@ -29,4 +29,11 @@ const pokemon = [
   },
 ];
 
-module.exports = pokemon;
+// Create a new array of Pokémon objects with capitalized names
+const capitalizedPokemon = pokemon.map((poke) => ({
+  // For each Pokémon object, create an object with the following properties:
+  name: poke.name.charAt(0).toUpperCase() + poke.name.slice(1), // Capitalize the first letter of the Pokémon's name
+  img: poke.img, // Copy the 'img' property from the original Pokémon object
+}));
+
+module.exports = capitalizedPokemon;

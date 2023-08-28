@@ -2,7 +2,7 @@ const express = require("express");
 const jsxEngine = require("jsx-view-engine");
 const app = express();
 const PORT = 3000;
-const pokemon = require("./models/pokemon");
+const capitalizedPokemon = require("./models/pokemon");
 
 // App config
 app.set("view engine", "jsx");
@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
  */
 app.get("/pokemon", (req, res) => {
   res.render("Index", {
-    pokemon: pokemon,
+    pokemon: capitalizedPokemon,
   });
 });
 
