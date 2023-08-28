@@ -1,7 +1,12 @@
 const express = require("express");
-const pokemon = require("./models/pokemon");
+const jsxEngine = require("jsx-view-engine");
 const app = express();
 const PORT = 3000;
+const pokemon = require("./models/pokemon");
+
+// App config
+app.set("view engine", "jsx");
+app.engine("jsx", jsxEngine());
 
 /**
  * @path /
@@ -22,7 +27,9 @@ app.get("/", (req, res) => {
  * @description returns a list of Pokémon
  */
 app.get("/pokemon", (req, res) => {
-  res.send(pokemon);
+  res.render("Index", {
+    pokemon: pokemon,
+  });
 });
 
 // Live server
